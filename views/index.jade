@@ -1,0 +1,13 @@
+//mixin listData(obj)
+//  option(value= #{obj._fields}) #{obj._fields}
+
+block content
+  h1= title
+    p #{message}
+    p #{list[0]}
+  each obj in list
+    p #{obj.keys} #{obj._fields}
+
+  //select(name='persons')
+  //  each obj in list
+  //    +listData(obj)
