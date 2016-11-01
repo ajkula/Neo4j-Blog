@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
 
         .then( function( result ) {
             response = {
-                title: 'Express',
+                title: 'Blog Neo4j Node.js',
                 list: result.records,
                 message: 'Votre text dynamique pour plus tard ici!!!'
             };

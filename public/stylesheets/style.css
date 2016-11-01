@@ -1,7 +1,23 @@
 body {
   padding: 50px;
   font: 14px "fantasy", Helvetica, Arial, sans-serif;
+  display: inline-block;
+}
+section {
+  display: inline-block;
+  position: relative;
+  padding: 25px;
+  background-color: #bbb;
+  right: 0px;
 }
 a {
   color: #00b7ff;
+}
+nav {
+  right: 0px;
+  position: relative;
+  padding: 25px;
+  display: inline-block;
+  color: #fafad2;
+  background: #000;
 }
