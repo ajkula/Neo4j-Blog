@@ -1,19 +1,19 @@
-//mixin listData(obj)
-//  option(value= #{obj._fields}) #{obj._fields}
 extends layout
 block content
+
+
+
   section
     h1= title
     p #{message}
     p #{list[0]._fields}
+    +listData(list)
+
     each obj in list
       p
         | #{obj.keys}
         button(type='button', onclick="alert('#{obj._fields}')") Select
 
-  //select(name='persons')
-  //  each obj in list
-  //    +listData(obj)
   nav
     each obj in list
       p #{obj._fields}
