@@ -1,1 +1,1 @@
-stylus --watch public/stylesheets/style.styl
+stylus --watch C:/Creation_Web/PetitSite/public/stylesheets/style.styl

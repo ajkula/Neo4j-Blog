@@ -1,7 +1,9 @@
 mixin listData(list)
-    select
-        each obj, i in list
-            option(value= i) #{obj._fields}
+        select(name='actor')
+            each obj, i in list
+                actor = #{obj._fields}
+                option(value= actor) #{obj._fields}
+        input(type='submit', id='submit', name='submit')
 
 doctype html
 html
@@ -9,6 +11,21 @@ html
         title= title
         link(rel='stylesheet', type="text/css", href='/stylesheets/style.css')
         //link(rel="stylesheet", type="text/css", href=cssUrl("/stylesheets/style"))
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     body
-        h1 YES
+        nav.navbar.navbar-inverse.navbar-fixed-top
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand WebSiteName
+                ul.nav.navbar-nav
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#') Page 1
+                    li
+                        a(href='#') Page 2
+                    li
+                        a(href='#') Page 3
         block content

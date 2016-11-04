@@ -1,24 +1,48 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "fantasy", Helvetica, Arial, sans-serif;
-  display: inline-block;
 }
 section {
   display: inline-block;
-  position: relative;
+  position: absolute;
+  top: 50px;
   padding: 25px;
-  background-color: #bbb;
-  right: 0px;
+  background-color: #929292;
+  left: 0px;
 }
 a {
-  color: #00b7ff;
+  color: #ff9800;
 }
-nav {
-  right: 0px;
-  position: relative;
-  top: -417px;
-  padding: 25px;
-  display: inline-block;
+.sider {
+  display: table inline-block;
+  margin-bottom: 5px;
+  cursor: pointer;
+  right: 0;
+  background: #808080;
+  position: absolute;
+  top: 50px;
   color: #fafad2;
-  background: #000;
+}
+.sider p.lister {
+  margin: 5px;
+}
+.sider span.actor {
+  display: table-cell;
+  padding: 5px;
+  width: 220px;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  transition: all ease 0.3s;
+}
+.sider span.actor:hover {
+  background: rgba(0,0,0,0.9);
+}
+.movies {
+  top: 51px;
+  display: inline-block;
+  position: relative;
+  background-color: #b8860b;
+  color: #f5f5f5;
+  left: 358px;
+  width: 798px;
 }

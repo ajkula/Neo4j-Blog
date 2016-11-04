@@ -3,17 +3,19 @@ block content
 
 
 
-  section
-    h1= title
-    p #{message}
-    p #{list[0]._fields}
-    +listData(list)
+    section
+        h1= title
+        p #{message}
+        p #{list[0]._fields}
+        form(action='/', method='get')
+            +listData(list)
+    div.movies
+        if(movies)
+            each doc in movies.docs
+                p #{doc}
 
-    each obj in list
-      p
-        | #{obj.keys}
-        button(type='button', onclick="alert('#{obj._fields}')") Select
-
-  nav
-    each obj in list
-      p #{obj._fields}
+    aside
+        .sider
+            each obj in list
+                p.lister
+                    span.actor #{obj._fields}
