@@ -31,11 +31,11 @@ a {
   padding: 5px;
   width: 220px;
   text-align: center;
-  background: rgba(0,0,0,0.6);
-  transition: all ease 0.3s;
+  background: rgba(0,0,0,0.4);
+  transition: all ease 2s;
 }
 .sider span.actor:hover {
-  background: rgba(0,0,0,0.9);
+  background: #000;
 }
 .movies {
   top: 51px;

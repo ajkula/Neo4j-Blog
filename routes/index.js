@@ -9,42 +9,27 @@ var session = driver.session();
 /* GET home page. */
 router.get('/', function (req, res, next) {
     var response;
-    session.run("MATCH (a:Person) RETURN a.name AS name")
+    var actor;
+    if (req.param("actor")) {
+        actor = req.param("actor");
+
+    }
+    session.run("MATCH (a:Person)-[b:ACTED_IN]->(c:Movie) RETURN a.name AS name, b AS roles, c AS movies")
 
         .then(function (result) {
             response = {
                 title: 'Blog Neo4j Node.js',
                 list: result.records,
-                message: 'Votre text dynamique pour plus tard ici!!!'
+                message: 'Votre text dynamique pour plus tard ici!!!',
+                index: actor
             };
             res.render('index', response);
-            //    console.log(response);
+            console.log(response.list[0]._fields[2].properties.title);
+            console.log(response.list[0]._fields[1].properties.roles[0]);
+            console.log(response.index)
         });
-    if (req.param("actor")) {
-        var actor = req.param("actor");
-        console.log(actor.toString());
-        getMovies(actor);
-    }
+
 });
 
 module.exports = router;
 
-function getMovies(actor) {
-    this.actor = actor;
-    var movies;
-    session.run("MATCH (a:Person)-[b:PLAYED_IN]->(c:Movie) WHERE a.name={actor} RETURN a.name AS name, b, c AS movie", {
-            actor: actor
-        })
-        .then(function (parameters) {
-            var err = parameters.err;
-            var result = parameters.result.records;
-            if (err) {
-                console.log(err)
-            } else {
-                movies = {
-                    docs: result
-                };
-                return movies;
-            }
-        });
-}

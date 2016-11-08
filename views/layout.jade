@@ -1,9 +1,14 @@
 mixin listData(list)
         select(name='actor')
             each obj, i in list
-                actor = #{obj._fields}
-                option(value= actor) #{obj._fields}
+                actor = #{obj._fields[0]}
+                option(value= i) #{obj._fields[0]}
         input(type='submit', id='submit', name='submit')
+
+mixin movies(index, list)
+    p #{list[index]._fields[2].properties.title}
+    p #{list[index]._fields[1].properties.roles}
+
 
 doctype html
 html
