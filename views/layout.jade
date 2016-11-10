@@ -6,8 +6,23 @@ mixin listData(list)
         input(type='submit', id='submit', name='submit')
 
 mixin movies(index, list)
-    p #{list[index]._fields[2].properties.title}
-    p #{list[index]._fields[1].properties.roles}
+    h1 Movies with #{list[index]._fields[0]}
+    each obj, i in list[index]._fields[1]
+
+        each item in obj
+            each elem in item
+                h2 #{elem.title}
+                p #{elem.tagline}
+        h3 Roles
+        h5 #{obj[0]}
+        br
+    //each obj, i in list[index]._fields[1]
+    //    h5 #{obj[0]}
+//    p #{list[index]._fields[1].properties.roles}
+
+//mixin test(index, list)
+//    each obj, i in list
+//        p #{obj._fields[2]}
 
 
 doctype html
