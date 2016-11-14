@@ -1,21 +1,24 @@
 extends layout
 block content
 
+    .container-fluid
+        .row
+            .col-sm-4
+                section
+                    h1= title
+                    p #{message}
+                    p #{list[0]._fields[0]}
+                    form(action='/', method='get')
+                        +listData(list)
 
+            .col-sm-6
+                div.movies
+                    if(index)
+                        +movies(index, list)
 
-    section
-        h1= title
-        p #{message}
-        p #{list[0]._fields[0]}
-        form(action='/', method='get')
-            +listData(list)
-    div.movies
-        if(index)
-            +movies(index, list)
-
-
-    aside
-        .sider
-            each obj in list
-                p.lister
-                    span.actor #{obj._fields[0]}
+            .col-sm-2
+                aside
+                    .sider
+                        each obj in list
+                            p.lister
+                                span.actor #{obj._fields[0]}

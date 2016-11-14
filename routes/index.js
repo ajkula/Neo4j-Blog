@@ -26,8 +26,8 @@ router.get('/', function (req, res, next) {
                 index: actor
             };
             res.render('index', response);
-            console.log(response.list[0]._fields[0]);
-            console.log(response.list[0]._fields[1]);
+            console.log(response.list[64]._fields[0]);
+            console.log(response.list[64]._fields[1]);
             console.log(response.index)
         });
 

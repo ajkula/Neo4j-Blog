@@ -4,18 +4,20 @@ mixin listData(list)
                 actor = #{obj._fields[0]}
                 option(value= i) #{obj._fields[0]}
         input(type='submit', id='submit', name='submit')
-
+var pack
 mixin movies(index, list)
     h1 Movies with #{list[index]._fields[0]}
     each obj, i in list[index]._fields[1]
-
+        hr
         each item in obj
             each elem in item
                 h2 #{elem.title}
                 p #{elem.tagline}
-        h3 Roles
-        h5 #{obj[0]}
-        br
+        h5 Roles :
+        each role, i in obj
+            if(i < obj.length -1)
+                li= obj[i]
+
     //each obj, i in list[index]._fields[1]
     //    h5 #{obj[0]}
 //    p #{list[index]._fields[1].properties.roles}
@@ -48,4 +50,5 @@ html
                         a(href='#') Page 2
                     li
                         a(href='#') Page 3
+
         block content
