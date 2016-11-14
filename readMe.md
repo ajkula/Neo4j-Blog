@@ -8,7 +8,7 @@ http://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavo
 
 Set new password...
 
-to populate the base, execute
+to populate the base, execute :
 
 :play movies
 
@@ -16,15 +16,17 @@ download the sources
 
 https://github.com/ajkula/Neo4j-Blog.git
 
-npm install
+Run :
 
-stylus-watch.bat
+ - npm install
+
+ - stylus-watch.bat
 
 set password from the database instead of default one
 
 then node app.js
 
 
-to learn more about Neo4j
+to learn more about Neo4j (French only for now...)
 
 https://docs.google.com/presentation/d/1olDJrUrr87N5Bp7YCFKFws5temVQ25ic6_s7WEgKqhg/edit?usp=sharing
