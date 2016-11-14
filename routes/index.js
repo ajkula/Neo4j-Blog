@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
             response = {
                 title: 'Blog Neo4j Node.js "Movies"',
                 list: result.records,
-                message: 'Vous avez demandé les infos sur '+result.records[actor]._fields[0]+', les voici donc ==>',
+                message: 'Vous voulez les infos sur '+result.records[actor]._fields[0]+', les voici donc ==>',
                 index: actor
             };
             res.render('index', response);
