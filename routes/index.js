@@ -9,20 +9,21 @@ var session = driver.session();
 /* GET home page. */
 router.get('/', function (req, res, next) {
     var response;
-    var actor;
+    var actor = null;
+    var mess = 'Vous voulez les infos sur ';
     if (req.param("actor")) {
         actor = req.param("actor");
-
     }
 //    session.run("MATCH (a:Person)-[b:ACTED_IN]->(c:Movie) RETURN distinct a.name AS name, b AS roles, c AS movies")
 //    session.run("MATCH (a:Person)-[b:ACTED_IN]->(c:Movie) with a, b, c order by a.name RETURN distinct a.name AS name, collect(b) AS roles, collect(c) AS movies")
-    session.run("MATCH (a:Person)-[b:ACTED_IN]->(c:Movie) with a, b.roles as roles, c as movies order by a.name RETURN distinct a.name AS name, collect(roles + movies) as movies")
+    session.run("MATCH (a:Person)-[b:ACTED_IN]->(c:Movie) with a, b.roles as roles, c as movies order by a.name asc RETURN distinct a.name AS name, collect(roles + movies) as movies")
 
         .then(function (result) {
+            if (actor){ mess += result.records[actor]._fields[0]} else { mess = ''}
             response = {
                 title: 'Blog Neo4j Node.js "Movies"',
                 list: result.records,
-                message: 'Vous voulez les infos sur '+result.records[actor]._fields[0]+', les voici donc ==>',
+                message: mess,
                 index: actor
             };
             res.render('index', response);
